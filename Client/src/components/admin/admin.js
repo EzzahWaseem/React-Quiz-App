@@ -22,7 +22,7 @@ export default function Admin() {
     useEffect(() => {
       dispatch(getList());
     }, [currentId,deletedId, dispatch]);
-    const { useState } = React;
+    // const { useState } = React;
     // var [updatedId, setUpdatedId] = useState(0);
     var [currentId, setcurrentId] = useState(0);
     var [deletedId, setDeletedId] = useState(0);

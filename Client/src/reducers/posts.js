@@ -11,10 +11,6 @@ switch(action.type){
         return states.map((state) => (state._id === action.payload._id ? action.payload : state));
     case DELETE:
         return states.filter((state) => state._id !== action.payload);
-    case FETCH_USER:
-        return [...states, action.payload];
-    case CREATE_USER:
-        return [...states, action.payload];
     default:
         return states
 }
