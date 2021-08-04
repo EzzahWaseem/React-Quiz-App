@@ -18,31 +18,7 @@ export default function Quiz(){
   
    
     // the method that checks the correct answer
-  const checkAnswer = answer => {
-        const { correctAnswers, step, score } = data;
-        console.log('answer',answer)
-        if(answer === correctAnswers[step]){
-            setData({
-                score: score + 1,
-                correctAnswer: correctAnswers[step],
-                clickedAnswer: answer
-            });
-        }else{
-            setData({
-                correctAnswer: 0,
-                clickedAnswer: answer
-            });
-        }
-    }
-
-    // method to move to the next question
-   const  nextStep = (step) => {
-        setData({
-            step: step + 1,
-            correctAnswer: 0,
-            clickedAnswer: 0
-        });
-    }
+ 
     var [data, setData] = useState(
         {
             questions: 
@@ -80,6 +56,31 @@ export default function Quiz(){
             score: 0
         }
     );
+    var checkAnswer = answer => {
+        var { correctAnswers, step, score } = data;
+        console.log('answer',answer)
+        if(answer === correctAnswers[step]){
+            setData({
+                score: score + 1,
+                correctAnswer: correctAnswers[step],
+                clickedAnswer: answer
+            });
+        }else{
+            setData({
+                correctAnswer: 0,
+                clickedAnswer: answer
+            });
+        }
+    }
+
+    // method to move to the next question
+   var  nextStep = (step) => {
+        setData({
+            step: step + 1,
+            correctAnswer: 0,
+            clickedAnswer: 0
+        });
+    }
   console.log('ques Data check',data)
         var { questions, answers, correctAnswer, clickedAnswer, step, score } = data;
   console.log('ques Data check 333',data)
