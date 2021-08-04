@@ -7,7 +7,7 @@ export const fetchLists = () => axios.get(url);
 export const createList = (newPost) => axios.post(url, newPost);
 export const updateList = (id, updatedPost) => axios.patch(`${url}/${id}`, updatedPost);
 export const deleteList = (id) => axios.delete(`${url}/${id}`);
-
+export const getUsersList = ()=> axios.get(`${userUrl}/get-list`)
 // export const fetchUser = (user) => {
 //      axios.post('http://localhost:5000/user/get-user',
 //     {
@@ -21,6 +21,7 @@ export const deleteList = (id) => axios.delete(`${url}/${id}`);
 //         console.log('err',err)
 //     });
 // }
+
 export const createUser = (newUser) => axios.post(`${userUrl}/create-user`, newUser);
 export const fetchUser = async (user)=>{
     const response = await fetch('http://localhost:5000/user/get-user',

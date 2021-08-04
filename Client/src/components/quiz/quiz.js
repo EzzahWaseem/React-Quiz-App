@@ -9,7 +9,7 @@ export default function Quiz(){
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(getList());
-    }, [ dispatch]);
+    }, []);
     const questionList = useSelector((state) => state.posts);
     console.log('que',questionList);
 
@@ -43,7 +43,7 @@ export default function Quiz(){
             clickedAnswer: 0
         });
     }
-    const [data, setData] = useState(
+    var [data, setData] = useState(
         {
             questions: 
             {
@@ -81,11 +81,12 @@ export default function Quiz(){
         }
     );
   console.log('ques Data check',data)
-        let { questions, answers, correctAnswer, clickedAnswer, step, score } = data;
+        var { questions, answers, correctAnswer, clickedAnswer, step, score } = data;
+  console.log('ques Data check 333',data)
        
         return(
             <div className="Content">
-                {step <= Object.keys(questions).length ? 
+                { (step) <=  Object.keys(questions).length ? 
                     (<>
                         <Question
                             question={questions[step]}

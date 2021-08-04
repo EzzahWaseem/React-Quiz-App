@@ -1,5 +1,5 @@
 import * as api from '../api'
-import { FETCH_ALL, CREATE, UPDATE, DELETE ,FETCH_USER,CREATE_USER} from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, UPDATE, DELETE ,FETCH_USER,CREATE_USER,USER_LIST} from '../constants/actionTypes';
 
 export const getList = () => async (dispatch) => {
     try {
@@ -43,6 +43,16 @@ export const getList = () => async (dispatch) => {
       await api.deleteList(id);
   
       dispatch({ type: DELETE, payload: id });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  export const getUserListData = () => async (dispatch) => {
+    try {
+      const { data } = await api.getUsersList();
+  
+      dispatch({ type: USER_LIST, payload: data });
     } catch (error) {
       console.log(error.message);
     }
